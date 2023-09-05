@@ -35,7 +35,7 @@
         } catch (\Throwable $th) {
             echo '<script type="text/javascript">';
             echo 'alert("usuario existente - cria novo usuario");';
-            echo 'window.location.href = "auth.html";';
+            echo 'window.location.href = "login.html";';
             echo '</script>';
         } 
     }

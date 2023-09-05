@@ -28,7 +28,7 @@
                 if ($cont == 0) {
                     echo '<script type="text/javascript">';
                     echo 'alert("Erro de insercao");';
-                    echo 'window.location.href = "auth.html";';
+                    echo 'window.location.href = "login.html";';
                     echo '</script>';
                 }               
             } 
@@ -39,7 +39,7 @@
         } catch (\Throwable $th) {
             echo '<script type="text/javascript">';
             echo 'alert("Erro de insercao");';
-            echo 'window.location.href = "auth.html";';
+            echo 'window.location.href = "login.html";';
             echo '</script>';
         }  
 ?>

@@ -15,7 +15,9 @@
    }
 
    function phpAlert($msg) {
-        echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+        echo '<script type="text/javascript">';
+        echo 'alert("' . $msg . '");';
+        echo '</script>';
     }
 ?>
 
@@ -28,7 +30,7 @@ try {
     if ($value =='submitCriar') {
         $nome = $_POST['nome'];
         $tipo = $_POST['tipo'];
-        $categoria = $_POST['categoria'];
+        $descricao = $_POST['descricao'];
         $tamanho = $_POST['tamanho'];
         $quarto = $_POST['quarto'];
         $wc = $_POST['wc'];
@@ -49,7 +51,7 @@ try {
         );
 
 
-        if(($_FILES['foto']['size'] >= $maxsize) || ($_FILES["foto"]["size"] == 0)) {
+        if(($_FILES['foto']['size'] >= $maxsize) ) {
             echo '<script type="text/javascript">';
             echo 'alert("Ficheiro grande. Deve ser menor que 2 megabytes.");';
             echo 'window.location.href = "gestao.php";';
@@ -64,15 +66,15 @@ try {
         }
         list($width, $height, $type, $attr) = getimagesize($tempname);
 
-        if($width > 600 || $height > 500){
+        if($width > 1000 || $height > 1000){
             echo '<script type="text/javascript">';
             echo 'alert("Imagem excedeu limites");';
             echo 'window.location.href = "gestao.php";';
             echo '</script>';
         }
     
-        $stmt = $conn->prepare(" INSERT INTO projecto (pro_nome, pro_tipo, pro_categoria, pro_tamanho, pro_quarto, pro_wc, pro_garagem, pro_preco, pro_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ");
-        $stmt->bind_param("ssssiiiis", $nome, $tipo, $categoria, $tamanho, $quarto, $wc, $garagem, $preco, $$image_p);
+        $stmt = $conn->prepare(" INSERT INTO projecto (pro_nome, pro_tipo, pro_descricao, pro_tamanho, pro_quarto, pro_wc, pro_garagem, pro_preco, pro_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ");
+        $stmt->bind_param("ssssiiiis", $nome, $tipo, $descricao, $tamanho, $quarto, $wc, $garagem, $preco, $foto);
     
         if (move_uploaded_file($tempname, $folder)) {
                     
