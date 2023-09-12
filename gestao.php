@@ -47,8 +47,8 @@ if (!isset($_SESSION["usuario"])) {
 		<div class="container">
 			<div class="navbar-brand">
 				<span class="navbar-logo">
-					<a href="https://mobiri.se">
-						<img src="assets/images/logo-337x156.png" alt="Mobirise Website Builder" style="height: 5rem;">
+					<a href="#">
+						<img src="assets/images/logo-337x156.png" alt="Projecto DEC" style="height: 5rem;">
 					</a>
 				</span>
 				
@@ -64,7 +64,7 @@ if (!isset($_SESSION["usuario"])) {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
 						<a class="nav-link link text-black text-primary display-4" href="index.html">Home</a>
-					</li><li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle show display-4" href="https://mobiri.se" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Sobre</a><div class="dropdown-menu show" aria-labelledby="dropdown-955" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="curiosiadades.html">Curiosidade</a><div class="dropdown"><a class="text-black dropdown-item dropdown-toggle show display-4" href="https://mobiri.se" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Projectos</a><div class="dropdown-menu dropdown-submenu show" aria-labelledby="dropdown-387" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="projectoSobre.html">Sobre</a><a class="text-black dropdown-item text-primary display-4" href="projectoPronto.html">Pronto</a><a class="text-black dropdown-item text-primary display-4" href="projectoModificado.html">Modificado</a><a class="text-black dropdown-item text-primary display-4" href="projectoExclusivo.html">Exclusivo</a></div></div></div></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="vendas.html">Projectos</a></li>
+					</li><li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle show display-4" href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Sobre</a><div class="dropdown-menu show" aria-labelledby="dropdown-955" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="curiosiadades.html">Curiosidade</a><div class="dropdown"><a class="text-black dropdown-item dropdown-toggle show display-4" href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Projectos</a><div class="dropdown-menu dropdown-submenu show" aria-labelledby="dropdown-387" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="projectoSobre.html">Sobre</a><a class="text-black dropdown-item text-primary display-4" href="projectoPronto.html">Pronto</a><a class="text-black dropdown-item text-primary display-4" href="projectoModificado.html">Modificado</a><a class="text-black dropdown-item text-primary display-4" href="projectoExclusivo.html">Exclusivo</a></div></div></div></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="vendas.php">Projectos</a></li>
 					
 					<li class="nav-item">
 						<a class="nav-link link text-black text-primary display-4" href="contacto.html">Contacto</a>
@@ -165,18 +165,10 @@ if (!isset($_SESSION["usuario"])) {
                     <a class="iconfont-wrapper bg-facebook m-2 " href="javascript:OpenModal('Actualizar')">
                             <span class="mobi-mbri-update mobi-mbri" style="color: rgb(255, 255, 255); fill: rgb(255, 255, 255);"></span>
                         </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
                         <a class="iconfont-wrapper bg-youtube m-2" href="javascript:OpenModal('Apagar')">
                             <span class="mobi-mbri-close mobi-mbri"></span>
-                        </a>
-                        
+                        </a>      
                 </div>
             </div>
         </div>
@@ -235,6 +227,288 @@ if (!isset($_SESSION["usuario"])) {
     </div>
 </section>
 
+<section data-bs-version="5.1" class="share3 cid-tPrvPKsnyB" id="share3-5x">
+    
+     
+    
+    
+    
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-12">
+                <h3 class="mbr-section-title align-center mb-3 mbr-fonts-style display-2"><strong>Gestão de imagens</strong></h3>
+                <div class="social-list align-center">
+                   
+                    
+                        
+                        <a class="iconfont-wrapper bg-instagram m-2" href="javascript:OpenModal('criarImagem')">
+                            <span class="mobi-mbri-edit-2 mobi-mbri" style="color: rgb(255, 255, 255); fill: rgb(255, 255, 255);"></span>
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a class="iconfont-wrapper bg-youtube m-2" href="javascript:OpenModal('delimagem')">
+                            <span class="mobi-mbri-close mobi-mbri"></span>
+                        </a>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="section-table cid-tPrAa9W4kR" id="design-block-61">      
+    <div class="container container-table">      
+        <h2 class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">Tabela de imagens</h2>            
+        <div class="table-wrapper">        
+            <div class="container">                  
+
+            </div>        
+            <div class="container scroll">          
+                <table class="table" cellspacing="0">            
+                    <thead>              
+                        <tr class="table-heads ">                                                                                      
+                            <th class="head-item mbr-fonts-style display-6" data-sortable="false">ID de imagem</th>
+                            <th class="head-item mbr-fonts-style display-6" data-sortable="false">ID do projecto</th>
+                            <th class="head-item mbr-fonts-style display-6" data-sortable="false">Nome do projecto</th>
+                            <th class="head-item mbr-fonts-style display-6" data-sortable="false">Imagem</th>
+                        </tr>            
+                    </thead>            
+                    <tbody>                                                                    
+                    <?php
+                            if(!empty($row2))
+                                foreach($row2 as $rows)
+                                { 
+                        ?>                                                                
+                        <tr>
+                            <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['id_imagens']; ?> </td>
+                            <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['id_pro']; ?> </td>
+                            <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['pro_nome']; ?> </td>
+                            <td class="body-item mbr-fonts-style display-8"> <img src="./assets/projectos/<?php echo $rows['img_ficheiro']; ?>"> </td>      
+                        </tr>
+                            <?php } ?>
+                    </tbody>          
+                </table>        
+            </div>        
+            <div class="container table-info-container">                  
+
+            </div>      
+        </div>    
+    </div>
+</section>
+
+<section class="mbr-section" id="witsec-modal-window-block-60" data-rv-view="540">
+
+	<style>
+	/* Let's not animate the contents of modal windows */
+	.no-anim {
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+	</style>
+
+	
+	
+	<div>
+        <form action="DB.php" method="post" enctype="multipart/form-data">
+        <div class="modal fade" id="delimagem" tabindex="-1" role="dialog" aria-labelledby="delimagemLabel" aria-hidden="true">  
+            <div class="modal-dialog  " style="height:auto" role="document">    
+                <div class="modal-content">
+                    <div class="modal-header">  
+                        <h5 class="no-anim modal-title display-7" id="delimagemLabel">Remover imagem</h5>  
+                        <a href="#" class="no-anim close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                    </div>
+                    <div class="modal-body display-7" id="delimagem_body">
+                        <div class="modal-body">                              
+                            <label for="projecto">ID de Imagem</label>
+                            <input type="number" name="IDimagem" class="form-control" min="0">                                                                               
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                            <div class="mbr-section-btn">
+                                <a href="#" class="no-anim btn btn-secondary display-4" data-bs-dismiss="modal" data-dismiss="modal">Sair</a>
+                            </div>
+                            <div class="mbr-section-btn">
+                                <button type="submit" name="submit" class="no-anim btn btn-primary display-4" value="imagemApagar">Submeter</button>
+                            </div>
+                    </div>    
+                </div>  
+            </div>
+        </div>
+        </form>
+        <script> 
+        document.addEventListener("DOMContentLoaded", function() { 
+        if(typeof jQuery === "function") {
+            $("#delimagem").on("hidden.bs.modal", function () { 
+            var html = $( "#delimagem_body" ).html(); 
+            $( "#delimagem_body" ).empty(); 
+            $( "#delimagem_body" ).append(html); 
+            }) 
+        } else { 
+            var mdw = document.getElementById("#delimagem") 
+            mdw.addEventListener("hidden.bs.modal", function(event) { 
+                mdw.innerHTML = mdw.innerHTML; 
+            }); 
+        } 
+        }); 
+        </script>
+    </div>
+
+        <script>
+        if (typeof OpenModal === 'undefined') {
+            OpenModal = function(modalName) {
+                if(typeof jQuery === "function") {
+                    if ($('#' + modalName).length)
+                        $('#' + modalName).modal('show');
+                    else
+                        alert("Sorry, but there is no modal for " + modalName);
+                } else {
+                    let mdw = new bootstrap.Modal(document.getElementById(modalName), {});
+                    mdw.show();
+                }
+            }
+        }
+
+        function modalSetCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function modalGetCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        </script>
+
+</section>
+
+<section class="mbr-section" id="witsec-modal-window-block-5z" data-rv-view="539">
+
+	<style>
+	/* Let's not animate the contents of modal windows */
+	.no-anim {
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+	</style>
+
+	
+	
+	<div>
+        <form action="DB.php" method="post" enctype="multipart/form-data">
+        <div class="modal fade" id="criarImagem" tabindex="-1" role="dialog" aria-labelledby="criarImagemLabel" aria-hidden="true">  
+            <div class="modal-dialog  " style="height:auto" role="document">    
+                <div class="modal-content">
+                    <div class="modal-header">  
+                        <h5 class="no-anim modal-title display-7" id="criarImagemLabel">Anexar imagem adicional</h5>  
+                        <a href="#" class="no-anim close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                    </div>
+                    <div class="modal-body display-7" id="criarImagem_body">
+                        <div class="modal-body">
+                                                            
+                        <label for="projecto">ID de projecto</label>
+                        <input type="number" name="idProjecto" class="form-control" min="0">
+                                                                                
+                        <hr>
+                                                            
+                        <label for="foto">Foto</label>
+                        <input type="file" name="fotoImagem" class="form-control">
+                                                            
+                    </div>
+                </div>
+                    <div class="modal-footer">
+                            <div class="mbr-section-btn">
+                                <a href="#" class="no-anim btn btn-secondary display-4" data-bs-dismiss="modal" data-dismiss="modal">Sair</a>
+                            </div>
+                            <div class="mbr-section-btn">
+                                <button type="submit" name="submit" class="no-anim btn btn-primary display-4" value="imagemCriar">Submeter</button>
+                            </div>
+                    </div>   
+                </div>  
+            </div>
+        </form>
+            </div>
+            <script> 
+                document.addEventListener("DOMContentLoaded", function() { 
+                if(typeof jQuery === "function") {
+                    $("#criarImagem").on("hidden.bs.modal", function () { 
+                    var html = $( "#criarImagem_body" ).html(); 
+                    $( "#criarImagem_body" ).empty(); 
+                    $( "#criarImagem_body" ).append(html); 
+                    }) 
+                } else { 
+                    var mdw = document.getElementById("#criarImagem") 
+                    mdw.addEventListener("hidden.bs.modal", function(event) { 
+                        mdw.innerHTML = mdw.innerHTML; 
+                    }); 
+                } 
+                }); 
+            </script>
+    </div>
+            <script>
+            if (typeof OpenModal === 'undefined') {
+                OpenModal = function(modalName) {
+                    if(typeof jQuery === "function") {
+                        if ($('#' + modalName).length)
+                            $('#' + modalName).modal('show');
+                        else
+                            alert("Sorry, but there is no modal for " + modalName);
+                    } else {
+                        let mdw = new bootstrap.Modal(document.getElementById(modalName), {});
+                        mdw.show();
+                    }
+                }
+            }
+
+            function modalSetCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function modalGetCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            </script>
+
+</section>
+
 <section class="mbr-section" id="witsec-modal-window-block-53" data-rv-view="41">
 
 <section class="mbr-section" id="witsec-modal-window-block-53" data-rv-view="165">
@@ -270,14 +544,20 @@ if (!isset($_SESSION["usuario"])) {
                             <input type="name" name="nome" class="form-control" required="">                                                        
                             <hr>
                             <label for="selectedTipo">Tipo</label>
-                            <input type="checkbox" id="enableTipo" onclick="toggleSelect('enableTipo', 'selectedTipo')">
-                            <select id="selectedTipo" name="tipo" class="form-control" disabled="">
+                            <input type="checkbox" id="enableTipo" onclick="toggle('enableTipo', 'selectedTipo')" >
+                            <select id="selectedTipo" name="tipo" class="form-control" >
                                 <option>Alvenaria</option>
                                 <option>olha</option>
                                 <option>opcao 3</option>
                                 <option>Alvenaria</option>
                                 <option>Alvenaria</option>
                             </select>
+
+                            <hr>
+
+
+                            <label for="descricao">Descricao</label>
+                            <input type="text" name="descricao" class="form-control">
 
                             <hr>
 
@@ -495,8 +775,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="row mbr-white">
             <div class="col-6 col-lg-3">
                 <div class="media-wrap col-md-12 col-12">
-                    <a href="https://mobiri.se/">
-                        <img src="assets/images/dec-white-logo.jpeg-506x506.jpg" alt="Mobirise Website Builder">
+                    <a href="#/">
+                        <img src="assets/images/dec-white-logo.jpeg-506x506.jpg" alt="Projecto DEC">
                     </a>
                 </div>
             </div>
@@ -538,12 +818,17 @@ document.addEventListener("DOMContentLoaded", function() {
             
         </div>
     </div>
-</section><section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
+</section><section><a href="#"></a><a href="#"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
   
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
-
-    <script src="assets/js/custom.js"></script>
+    <script> 
+    function toggle(checkboxID, toggleID) {
+        var checkbox = document.getElementById(checkboxID);
+        var toggle = document.getElementById(toggleID);
+        updateToggle = checkbox.checked ? toggle.disabled=false : toggle.disabled=true;
+    }
+    </script>
   </body>
 </html>

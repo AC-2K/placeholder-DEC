@@ -25,7 +25,7 @@
 
 $value = $_POST['submit'];
 
-//TODO - Restringir tamanho da foto a ser inserido 
+//Metodo de inserir projectos
 try {
     if ($value =='submitCriar') {
         $nome = $_POST['nome'];
@@ -93,14 +93,80 @@ try {
         phpAlert($msg);
         echo"<td width=14% align=center><input type=button value=Voltar onclick=myselect() /></td>";
 }
+
+//Metodo de inserir fotos de projectos
+try {
+    if ($value =='imagemCriar') {
+        $nome = $_POST['idProjecto'];
+
+        //Validacao de foto
+        $img = basename($_FILES['fotoImagem']['name']); //Get here extension from image
+        $result = explode('.',$img);
+        $foto= $result[0].date('dmY').'_'.time().'.'.$result[1]; 
+        
+       // $foto = $_FILES["fotoImagem"]["name"];
+        $tempname = $_FILES["fotoImagem"]["tmp_name"];
+        $folder = "./assets/projectos/" . $foto;
+    
+        $errors     = array();
+        $maxsize    = 2097152;
+        $acceptable = array(
+            'image/jpeg',
+            'image/jpg',
+            'image/png'
+        );
+
+
+        if(($_FILES['fotoImagem']['size'] >= $maxsize) ) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Ficheiro grande. Deve ser menor que 2 megabytes.");';
+            echo 'window.location.href = "gestao.php";';
+            echo '</script>';
+        }
+    
+        if((!in_array($_FILES['fotoImagem']['type'], $acceptable)) ) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Invalid file type. So JPG, e PNG sao permitidos");';
+            echo 'window.location.href = "gestao.php";';
+            echo '</script>';
+        }
+        list($width, $height, $type, $attr) = getimagesize($tempname);
+
+        if($width > 1000 || $height > 1000){
+            echo '<script type="text/javascript">';
+            echo 'alert("Imagem excedeu limites");';
+            echo 'window.location.href = "gestao.php";';
+            echo '</script>';
+        }
+    
+        $stmt = $conn->prepare(" INSERT INTO imagens (id_pro, img_ficheiro) VALUES (?, ?) ");
+        $stmt->bind_param("ss", $nome, $foto);
+    
+        if (move_uploaded_file($tempname, $folder)) {
+                    
+            if ($stmt->execute() ) {
+                echo '<script type="text/javascript">';
+                echo 'alert("Imagem inserido no projecto '.$nome.' ");';
+                echo 'window.location.href = "gestao.php";';
+                echo '</script>';
+            }else{
+                throw new Exception("Erro - Inseriu dados invalidos");
+            } 
+        }  
+    }
+}catch (\Throwable $th) {
+        $msg =  " " . $th->getMessage();
+        phpAlert($msg);
+        echo"<td width=14% align=center><input type=button value=Voltar onclick=myselect() /></td>";
+}
   
 
-//TODO - Efectuar a actualizacao
+//actualizacao de projectos
 try{
     if ($value =='submitActualizar') {
     $nome = $_POST['nome'];
     $tipo = $_POST['tipo'];
-    $categoria = $_POST['categoria'];
+    $descricao = $_POST['descricao'];
     $tamanho = $_POST['tamanho'];
     $quarto = $_POST['quarto'];
     $wc = $_POST['wc'];
@@ -132,9 +198,9 @@ try{
         }  
 
     }
-    if(isset($categoria)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_categoria = ?  WHERE pro_nome = '$nome' ");
-        $stmt->bind_param("s",$categoria);
+    if(isset($descricao)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_descricao = ?  WHERE pro_nome = '$nome' ");
+        $stmt->bind_param("s",$descricao);
         
         if ($stmt->execute()) {
             header("Location: gestao.php");
@@ -248,7 +314,7 @@ try{
 }
 
 try{
-    //TODO - Apagar o ficheiro guardado no servidor    
+    //Apagar projecto 
     if ($value =='submitApagar') { 
         $nome = $_POST['nomeDEL'];
         $stmt = $conn->prepare("DELETE FROM projecto WHERE pro_nome = ? ");
@@ -269,6 +335,46 @@ try{
             foreach($row as $rows){                                                            
                 $folder = $path . $rows['pro_img']; 
                 unlink($folder);
+            }
+
+        if ($stmt->execute()) { 
+            header("Location: gestao.php");
+            
+        }else{
+            throw new Exception("Erro - Inseriu dados invalidos");
+        } 
+    }
+} catch (\Throwable $th) {
+    $msg =  " " . $th->getMessage();;
+    phpAlert($msg);
+    echo"<td width=14% align=center><input type=button value=Voltar onclick=myselect() /></td>";
+   // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+try{
+    //Apagar uma das imagens do projecto 
+    if ($value =='imagemApagar') {
+         
+        $nome = $_POST['IDimagem'];
+        $stmt = $conn->prepare("DELETE FROM imagens WHERE id_imagens = ? ");
+        $stmt->bind_param("s", $nome);
+
+        $path = './assets/projectos/';
+
+            //Apagar foto no ficheiro DB
+            $sql = "SELECT * FROM imagens WHERE id_imagens = '$nome' ";
+            $result = ($conn->query($sql));
+            //declare array to store the data of database
+            $row = []; 
+            if ($result->num_rows > 0) 
+            {
+                // fetch all data from db into array 
+                $row = $result->fetch_all(MYSQLI_ASSOC);  
+            }  
+            foreach($row as $rows){                                                            
+                $folder = $path . $rows['img_ficheiro']; 
+                unlink($folder);
+                header("Location: gestao.php");
             }
 
         if ($stmt->execute()) { 

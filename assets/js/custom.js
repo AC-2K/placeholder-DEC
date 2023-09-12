@@ -1,16 +1,7 @@
-function whatsApp() {
-  location.replace("https://wa.me/258848100497");
-}
-
-function toggleSelect(checkboxId, selectId) {
-  var enableSelectCheckbox = document.getElementById(checkboxId);
-  var selectElement = document.getElementById(selectId);
-
-  if (enableSelectCheckbox.checked) {
-      selectElement.disabled = false;
-  } else {
-      selectElement.disabled = true;
-  }
+function toggle(checkboxID, toggleID) {
+  var checkbox = document.getElementById(checkboxID);
+  var toggle = document.getElementById(toggleID);
+  updateToggle = checkbox.checked ? toggle.disabled=false : toggle.disabled=true;
 }
 
 
@@ -28,7 +19,7 @@ function definirArray( obejctoArray ){
     element["pro_img"] = "./assets/DB/"+imgAntigo;
     
     Projecto.push(element);    
-}
+  }
 
 }
 function listProjecto(){
@@ -48,30 +39,30 @@ function listProjecto(){
     let preco1 = Projecto[b].pro_preco;
     
 
-    pro.push("<div class=\"embla__slide slider-image item\" style=\"margin-left: 1rem; margin-right: 1rem;\">");
+    pro.push("<div class=\"embla__slide slider-image item\" style=\"margin-left: 1rem; margin-right: 1rem;\" >");
       pro.push("<div class=\"slide-content\">");
         
         pro.push("<div class=\"item-img\">");
           
           pro.push("<div class=\"item-wrapper\">");  
-            pro.push("<img src=" + foto1+ " alt=\"Projecto DEC\"> width=\"150\" height=\"150\"");
+            pro.push("<img src=" + foto1+ " alt=\"Projecto DEC\" width=\"20\" height=\"50\"> ");
           pro.push("</div>");
         pro.push("</div>");
 
             pro.push("<div class=\"item-content\">");
               pro.push("<h5  class=\"item-title mbr-fonts-style display-5\"> <strong>"+nome1+"</strong> </h5>");
               pro.push("<hr>");
-              pro.push("<span class=\"mbr-text mbr-fonts-style mt-3 display-7\"> <img src=\"assets/images/tape.png\" width=\"50\" height=\"50\">"+" - "+tamanho1+"");
+              pro.push("<span class=\"mbr-iconfont mobi-mbri-edit-2 mobi-mbri\ > - "+tamanho1+" </span>");
               pro.push("<hr>");
-              pro.push("<span class=\"mbr-text mbr-fonts-style mt-3 display-7\"> <img src=\"assets/images/house.png\">"+" - "+tipo1+"");
+              pro.push("<span class=\"mbr-iconfont mobi-mbri-home mobi-mbri\">  - "+tipo1+" </span>");
               pro.push("<hr>");
-              pro.push("<span class=\"mbr-text mbr-fonts-style mt-3 display-7\"> <img src=\"assets/images/bed.png\">"+" - "+quarto1+"");
+              pro.push("<span class=\"mbr-iconfont material material-airline-seat-flat\"> - "+quarto1+" </span>");
               pro.push("<hr>");
-              pro.push("<span class=\"mbr-text mbr-fonts-style mt-3 display-7\"> <img src=\"assets/images/bathroom.png\">"+" - "+wc1+"");
+              pro.push("<span class=\"mbr-iconfont material material-wc\"> - M"+wc1+"ZN </span>");
               pro.push("<hr>");
-              pro.push("<span class=\"mbr-text mbr-fonts-style mt-3 display-7\"> <img src=\"assets/images/garage.png\">"+" - "+garagem1+"");
+              pro.push("<span class=\"mbr-iconfont material material-time-to-leave\"> - "+garagem1+" </span>");
               pro.push("<hr>");
-              pro.push("<span class=\"mbr-text mbr-fonts-style mt-3 display-7\"> <img src=\"assets/images/payment.png\">"+" - "+preco1+" MZN");
+              pro.push("<span class=\"mbr-iconfont mbri-cash\"> - "+preco1+" MZN </span>");
               pro.push("<hr>");
             pro.push("</div>");
                 pro.push("<div class=\"mbr-section-btn item-footer mt-2\"> <a href=\"produto.html\" class=\"btn item-btn btn-info display-7\">Interessado </a></div>");

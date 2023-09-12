@@ -1,3 +1,7 @@
+<?php
+    include 'connect.php';
+
+?>
 <!DOCTYPE html>
 <html  >
 <head>
@@ -11,7 +15,9 @@
   
   
   <title>vendas</title>
+  <link rel="stylesheet" href="assets/material-design/css/material-icons.min.css">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
@@ -19,10 +25,11 @@
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/socicon/css/styles.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
 
   
   
@@ -37,8 +44,8 @@
 		<div class="container">
 			<div class="navbar-brand">
 				<span class="navbar-logo">
-					<a href="https://mobiri.se">
-						<img src="assets/images/logo-337x156.png" alt="Mobirise Website Builder" style="height: 5rem;">
+					<a href="#">
+						<img src="assets/images/logo-337x156.png" alt="Projecto DEC" style="height: 5rem;">
 					</a>
 				</span>
 				
@@ -54,7 +61,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
 						<a class="nav-link link text-black text-primary display-4" href="index.html">Home</a>
-					</li><li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle show display-4" href="https://mobiri.se" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Sobre</a><div class="dropdown-menu show" aria-labelledby="dropdown-955" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="curiosiadades.html">Curiosidade</a><div class="dropdown"><a class="text-black dropdown-item dropdown-toggle show display-4" href="https://mobiri.se" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Projectos</a><div class="dropdown-menu dropdown-submenu show" aria-labelledby="dropdown-387" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="projectoSobre.html">Sobre</a><a class="text-black dropdown-item text-primary display-4" href="projectoPronto.html">Pronto</a><a class="text-black dropdown-item text-primary display-4" href="projectoModificado.html">Modificado</a><a class="text-black dropdown-item text-primary display-4" href="projectoExclusivo.html">Exclusivo</a></div></div></div></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="vendas.html">Projectos</a></li>
+					</li><li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle show display-4" href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Sobre</a><div class="dropdown-menu show" aria-labelledby="dropdown-955" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="curiosiadades.html">Curiosidade</a><div class="dropdown"><a class="text-black dropdown-item dropdown-toggle show display-4" href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true">Projectos</a><div class="dropdown-menu dropdown-submenu show" aria-labelledby="dropdown-387" data-bs-popper="none"><a class="text-black dropdown-item text-primary display-4" href="projectoSobre.html">Sobre</a><a class="text-black dropdown-item text-primary display-4" href="projectoPronto.html">Pronto</a><a class="text-black dropdown-item text-primary display-4" href="projectoModificado.html">Modificado</a><a class="text-black dropdown-item text-primary display-4" href="projectoExclusivo.html">Exclusivo</a></div></div></div></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="vendas.php">Projectos</a></li>
 					
 					<li class="nav-item">
 						<a class="nav-link link text-black text-primary display-4" href="contacto.html">Contacto</a>
@@ -87,7 +94,7 @@
 						<strong>Muitas opções!!!</strong></h3>
 
 					<p class="mbr-cardtext mbr-fonts-style mb-0 display-7">
-					Aqui podes encontrar as várias opções que possam satisfazer a si, desde projectos prontos, modificados e exclusivos.<br></p>
+					Aqui podes encontrar as várias opções que possam satisfazer a si !!<br></p>
 				</div>
 			</div>
 			<div class="col-12 col-lg-6">
@@ -108,7 +115,46 @@
         <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-auto-play-interval="5" data-draggable="true">
             <div class="embla__viewport container">
                 <div class="embla__container">
-                    <div id="pronto"></div>
+                    <?php
+                        if(!empty($row))
+                            foreach($row as $rows){
+                        ?>                        
+                        <?php echo '<form action="produto.php" method="POST"  enctype="multipart/form-data"> '; ?>
+                        <?php echo '<div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">'; ?> 
+                            <?php echo '<div class="slide-content">'; ?>
+                                <?php echo '<div class="item-img">'; ?>
+                                    <?php echo '<div class="item-wrapper">'; ?>
+                                        <?php echo '<img src="assets/DB/'.$rows['pro_img'].'" alt="Projecto DEC" >'; ?>  
+                                    <?php echo '</div>'; ?> 
+                                <?php echo '</div>'; ?>
+                                <?php echo '<div class="item-content">'; ?>
+                                    <?php echo '<h4 class="item-title mbr-fonts-style display-5"> <strong>'.$rows['pro_nome'].'</strong></h4>'; ?>
+                                    <?php echo '<br>'; ?>
+                                    <?php echo '<span class="mbr-iconfont mobi-mbri-edit-2 mobi-mbri" style="font-size: 30px;> </span><p class="mbr-text mbr-fonts-style mt-3 display-7"></p>  '; ?>
+                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_tamanho'].'</p> '; ?>
+                                    <?php echo '<hr>'; ?>
+                                    <?php echo '<span class="mbr-iconfont mobi-mbri-home mobi-mbri" style="font-size: 30px;><p class="mbr-text mbr-fonts-style mt-3 display-7"></p></span>'; ?> 
+                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_tipo'].'</p> '; ?>
+                                    <?php echo '<hr>'; ?>
+                                    <?php echo '<span class="mbr-iconfont material material-airline-seat-flat" style="font-size: 30px;><p class="mbr-text mbr-fonts-style mt-3 display-7"></p></span>'; ?>  
+                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_quarto'].'</p> '; ?>
+                                    <?php echo '<hr>'; ?>
+                                    <?php echo '<span class="mbr-iconfont material material-wc" style="font-size: 30px;><p class="mbr-text mbr-fonts-style mt-3 display-7"></p></span>'; ?> 
+                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_wc'].'</p> '; ?>
+                                    <?php echo '<hr>'; ?>
+                                    <?php echo '<span class="mbr-iconfont material material-time-to-leave" style="font-size: 30px;><p class="mbr-text mbr-fonts-style mt-3 display-7"></p></span>'; ?>
+                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_wc'].'</p> '; ?>
+                                    <?php echo '<hr>'; ?>
+                                    <?php echo '<input type="hidden" name="ID" value="'.$rows['pro_id'].'">'; ?>
+                                    <?php echo '<span class="mbr-iconfont mbri-cash" style="font-size: 30px;><p class="mbr-text mbr-fonts-style mt-3 display-7"></p></span>'; ?>
+                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_preco'].' MZN</p> '; ?>
+                                    <?php echo '<hr>'; ?>                                       
+                                <?php echo '</div>'; ?>
+                                <?php echo '<div class="mbr-section-btn item-footer mt-2"><button type="submit" class="btn item-btn btn-info display-7" name="submit" value="produto">Estou interessado</button></div>'; ?> 
+                            <?php echo '</div>'; ?> 
+                        <?php echo '</div>'; ?>
+                        <?php echo ' </form> '; ?> 
+                    <?php } ?>
                 </div>
             </div>
             <button class="embla__button embla__button--prev">
@@ -146,8 +192,8 @@
         <div class="row mbr-white">
             <div class="col-6 col-lg-3">
                 <div class="media-wrap col-md-12 col-12">
-                    <a href="https://mobiri.se/">
-                        <img src="assets/images/dec-white-logo.jpeg-506x506.jpg" alt="Mobirise Website Builder">
+                    <a href="#/">
+                        <img src="assets/images/dec-white-logo.jpeg-506x506.jpg" alt="Projecto DEC">
                     </a>
                 </div>
             </div>
@@ -225,13 +271,13 @@
        </h10>				
     </div>
   </div>  
-</section><section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/embla/embla.min.js"></script>  <script src="assets/embla/script.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section><a href="#"></a><a href="#"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/embla/embla.min.js"></script>  <script src="assets/embla/script.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
     <script>
-        //AJAX comands to show database data in vendas.html
+        //AJAX comands to show database data in vendas.php
         
         fetch('Ajax-Calls.php')
             .then(response => response.json())
