@@ -100,13 +100,12 @@ if (!isset($_SESSION["usuario"])) {
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="tipo">
-                            <select id="selectedTipo" name="tipo" class="form-control" required>
-                                <option>Alvenaria</option>
-                                <option>Duplex</option>
-                                <option>Multifamiliar</option>
-                                <option>Quinta</option>
-                                <option>Retro</option>
-                            </select>                        
+                            <select id="selectedTipo" name="tipo" class="form-control" >
+                                <option>Res do chão</option>
+                                <option> 1 andar</option>
+                                <option> 2 andar</option>
+                                <option> 3 andar</option>
+                            </select>                       
                         </div>
 
                         
@@ -546,11 +545,10 @@ if (!isset($_SESSION["usuario"])) {
                             <label for="selectedTipo">Tipo</label>
                             <input type="checkbox" id="enableTipo" onclick="toggle('enableTipo', 'selectedTipo')" >
                             <select id="selectedTipo" name="tipo" class="form-control" >
-                                <option>Alvenaria</option>
-                                <option>olha</option>
-                                <option>opcao 3</option>
-                                <option>Alvenaria</option>
-                                <option>Alvenaria</option>
+                                <option>Res do chão</option>
+                                <option> 1 andar</option>
+                                <option> 2 andar</option>
+                                <option> 3 andar</option>
                             </select>
 
                             <hr>

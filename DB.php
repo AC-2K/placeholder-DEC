@@ -38,7 +38,11 @@ try {
         $preco = $_POST['preco'];
     
         //Validacao de foto
-        $foto = $_FILES["foto"]["name"];
+        //Validacao de foto
+        $img = basename($_FILES['foto']['name']); //Get here extension from image
+        $result = explode('.',$img);
+        $foto= $result[0].date('dmY').'_'.time().'.'.$result[1]; 
+
         $tempname = $_FILES["foto"]["tmp_name"];
         $folder = "./assets/DB/" . $foto;
     
@@ -66,9 +70,11 @@ try {
         }
         list($width, $height, $type, $attr) = getimagesize($tempname);
 
-        if($width > 1000 || $height > 1000){
+        if($width > 1500 || $height > 1000){
             echo '<script type="text/javascript">';
             echo 'alert("Imagem excedeu limites");';
+            echo 'alert("Limites - width/largura - 1500 pixeis , heigth/altura - 1000 pixeis");';
+            echo 'alert("width - '.$width.' height - '.$height.' ");';
             echo 'window.location.href = "gestao.php";';
             echo '</script>';
         }
@@ -89,8 +95,10 @@ try {
         }  
     }
 }catch (\Throwable $th) {
-        $msg =  " " . $th->getMessage();;
-        phpAlert($msg);
+        $msg =  " " . $th->getMessage();
+        echo '<script type="text/javascript">';
+        echo 'alert("'.$msg.'");';
+        echo '</script>';
         echo"<td width=14% align=center><input type=button value=Voltar onclick=myselect() /></td>";
 }
 
@@ -132,9 +140,11 @@ try {
         }
         list($width, $height, $type, $attr) = getimagesize($tempname);
 
-        if($width > 1000 || $height > 1000){
+        if($width > 2000 || $height > 2000){
             echo '<script type="text/javascript">';
             echo 'alert("Imagem excedeu limites");';
+            echo 'alert("Limites - width/largura - 1500 pixeis , heigth/altura - 1000 pixeis");';
+            echo 'alert("width - '.$width.' height - '.$height.' ");';
             echo 'window.location.href = "gestao.php";';
             echo '</script>';
         }

@@ -147,7 +147,7 @@
                                     <?php echo '<hr>'; ?>
                                     <?php echo '<input type="hidden" name="ID" value="'.$rows['pro_id'].'">'; ?>
                                     <?php echo '<span class="mbr-iconfont mbri-cash" style="font-size: 30px;><p class="mbr-text mbr-fonts-style mt-3 display-7"></p></span>'; ?>
-                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_preco'].' MZN</p> '; ?>
+                                    <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_preco'].',00 MZN</p> '; ?>
                                     <?php echo '<hr>'; ?>                                       
                                 <?php echo '</div>'; ?>
                                 <?php echo '<div class="mbr-section-btn item-footer mt-2"><button type="submit" class="btn item-btn btn-info display-7" name="submit" value="produto">Estou interessado</button></div>'; ?> 
@@ -243,7 +243,7 @@
      
   <div class="whatapp">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a class="float" target="_blank" href="https://api.whatsapp.com/send?phone=258848100497&text=Cumprimentos!">
+<a class="float" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=258848100497&text=Cumprimentos!">
 <i class="fa fa-whatsapp my-float"></i>
 </a>
 	</div>
@@ -276,21 +276,7 @@
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
-    <script>
-        //AJAX comands to show database data in vendas.php
-        
-        fetch('Ajax-Calls.php')
-            .then(response => response.json())
-            .then(data => {    
-              // Handle the data here (e.g., update the DOM)
-              definirArray(data);
-    
-              listProjecto();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-      </script>
+
 
 <script src="assets/js/custom.js"></script>
   </body>

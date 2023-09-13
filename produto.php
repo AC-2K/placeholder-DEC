@@ -122,12 +122,12 @@
                     <?php echo '<h4 class="item-title mbr-fonts-style display-5"> <strong>'.$rows['pro_nome'].'</strong></h4>'; ?>
                       <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_descricao'].'</p> '; ?>                            
                         <div class="cost">
-                          <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_preco'].' MZN</p> '; ?> 
+                          <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">'.$rows['pro_preco'].',00 MZN</p> '; ?> 
                           <?php echo '<hr> '; ?>
                           <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">Não inclui: </p> '; ?>
                           <?php echo '<h5>Mapa de quantidades </h5> '; ?>   
                           <?php echo '<h5>Orçamento </h5> '; ?>  
-                        <?php echo '<div class="mbr-section-btn item-footer mt-2"><a  class="btn item-btn btn-info display-7" href="https://api.whatsapp.com/send?phone=258848100497&text=Cumprimentos! Estou interessado no projecto '.$rows['pro_nome'].', visualizado a partir website" value="produto">Estou interessado</a></div>'; ?> 
+                        <?php echo '<div class="mbr-section-btn item-footer mt-2"><a  class="btn item-btn btn-info display-7" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=258848100497&text=Cumprimentos! Estou interessado no projecto '.$rows['pro_nome'].', visualizado a partir website" value="produto">Estou interessado</a></div>'; ?> 
                     </div>
                 </div>
             </div>
