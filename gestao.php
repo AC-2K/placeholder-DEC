@@ -284,9 +284,9 @@ if (!isset($_SESSION["usuario"])) {
                                 { 
                         ?>                                                                
                         <tr>
-                            <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['id_imagens']; ?> </td>
-                            <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['id_pro']; ?> </td>
-                            <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['pro_nome']; ?> </td>
+                            <td class="body-item mbr-fonts-style display-8"> <?php echo "<h2>".$rows['id_imagens']."</h2>"; ?> </td>
+                            <td class="body-item mbr-fonts-style display-8"> <?php echo "<h2>".$rows['id_pro']."</h2>"; ?> </td>
+                            <td class="body-item mbr-fonts-style display-8"> <?php echo "<h2>".$rows['pro_nome']."</h2>"; ?> </td>
                             <td class="body-item mbr-fonts-style display-8"> <img src="./assets/projectos/<?php echo $rows['img_ficheiro']; ?>"> </td>      
                         </tr>
                             <?php } ?>

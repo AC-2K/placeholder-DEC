@@ -9,6 +9,7 @@ body {
   font-weight: 400;
   color: #232323;
   position: relative;
+  
 }
 
 button {
@@ -117,6 +118,7 @@ a {
   word-break: break-word;
   word-wrap: break-word;
   font-weight: 400;
+  text-align: justify;
 }
 
 b,
@@ -175,7 +177,8 @@ section .mbr-background-video-preview {
 
 /*! Text-aligns */
 .align-left {
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .align-center {
