@@ -225,7 +225,7 @@
                         </a>
                     </div>
                     <div class="soc-item">
-                        <a href="https://wa.me/258848100497">
+                        <a href="https://wa.me/ 258873100497">
                             <span class="mbr-iconfont socicon-whatsapp socicon"></span>
                         </a>
                     </div>
@@ -243,7 +243,7 @@
      
   <div class="whatapp">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a class="float" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=258848100497&text=Cumprimentos!">
+<a class="float" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone= 258873100497&text=Cumprimentos!">
 <i class="fa fa-whatsapp my-float"></i>
 </a>
 	</div>

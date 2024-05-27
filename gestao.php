@@ -186,7 +186,6 @@ if (!isset($_SESSION["usuario"])) {
                     <thead>              
                         <tr class="table-heads ">      
                             <th class="head-item mbr-fonts-style display-8" data-sortable="false">Nome</th>
-                            <th class="head-item mbr-fonts-style display-8" data-sortable="false">ID</th>
                             <th class="head-item mbr-fonts-style display-8" data-sortable="false">Tipo</th>
                             <th class="head-item mbr-fonts-style display-8" data-sortable="false">Tamanho</th>
                             <th class="head-item mbr-fonts-style display-8" data-sortable="false">Quarto</th>
@@ -205,7 +204,6 @@ if (!isset($_SESSION["usuario"])) {
                         ?>                                                                
                         <tr>
                             <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['pro_nome']; ?> </td>
-                            <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['pro_id']; ?> </td>
                             <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['pro_tipo']; ?> </td>
                             <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['pro_tamanho']; ?> </td>
                             <td class="body-item mbr-fonts-style display-8"> <?php echo $rows['pro_quarto']; ?> </td>
@@ -272,8 +270,7 @@ if (!isset($_SESSION["usuario"])) {
                     <thead>              
                         <tr class="table-heads ">                                                                                      
                             <th class="head-item mbr-fonts-style display-6" data-sortable="false">ID de imagem</th>
-                            <th class="head-item mbr-fonts-style display-6" data-sortable="false">ID do projecto</th>
-                            <th class="head-item mbr-fonts-style display-6" data-sortable="false">Nome do projecto</th>
+                            <th class="head-item mbr-fonts-style display-6" data-sortable="false">Projecto</th>
                             <th class="head-item mbr-fonts-style display-6" data-sortable="false">Imagem</th>
                         </tr>            
                     </thead>            
@@ -285,7 +282,6 @@ if (!isset($_SESSION["usuario"])) {
                         ?>                                                                
                         <tr>
                             <td class="body-item mbr-fonts-style display-8"> <?php echo "<h2>".$rows['id_imagens']."</h2>"; ?> </td>
-                            <td class="body-item mbr-fonts-style display-8"> <?php echo "<h2>".$rows['id_pro']."</h2>"; ?> </td>
                             <td class="body-item mbr-fonts-style display-8"> <?php echo "<h2>".$rows['pro_nome']."</h2>"; ?> </td>
                             <td class="body-item mbr-fonts-style display-8"> <img src="./assets/projectos/<?php echo $rows['img_ficheiro']; ?>"> </td>      
                         </tr>
@@ -326,8 +322,16 @@ if (!isset($_SESSION["usuario"])) {
                     </div>
                     <div class="modal-body display-7" id="delimagem_body">
                         <div class="modal-body">                              
-                            <label for="projecto">ID de Imagem</label>
-                            <input type="number" name="IDimagem" class="form-control" min="0">                                                                               
+                        <label for="id">ID de imagem & Projecto</label>
+                            <select class="form-control" name="id" id="id" required>
+                                <?php
+                                    if(!empty($row2))
+                                        foreach($row2 as $rows)
+                                        { 
+                                    ?>                                                                   
+                                        <option><?php echo $rows['id_imagens']." - ".$rows['pro_nome']; ?></option>
+                                <?php } ?>
+                            </select>                                                                             
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -428,8 +432,16 @@ if (!isset($_SESSION["usuario"])) {
                     <div class="modal-body display-7" id="criarImagem_body">
                         <div class="modal-body">
                                                             
-                        <label for="projecto">ID de projecto</label>
-                        <input type="number" name="idProjecto" class="form-control" min="0">
+                        <label for="id">Projecto</label>
+                            <select class="form-control" name="id" id="id" required>
+                                <?php
+                                    if(!empty($row))
+                                        foreach($row as $rows)
+                                        { 
+                                    ?>                                                                   
+                                        <option><?php echo $rows['pro_id']." - ".$rows['pro_nome']; ?></option>
+                                <?php } ?>
+                            </select>
                                                                                 
                         <hr>
                                                             
@@ -538,9 +550,19 @@ if (!isset($_SESSION["usuario"])) {
                     </div>
                     <div class="modal-body display-7" id="Actualizar_body">
                         <div class="modal-body">
-
+                            <label for="id">Projecto</label>
+                            <select class="form-control" name="id" id="id" required>
+                                <?php
+                                    if(!empty($row))
+                                        foreach($row as $rows)
+                                        { 
+                                    ?>                                                                   
+                                        <option><?php echo $rows['pro_id']." - ".$rows['pro_nome']; ?></option>
+                                <?php } ?>
+                            </select>
+                            <hr>
                             <label for="nome">Nome</label>
-                            <input type="name" name="nome" class="form-control" required="">                                                        
+                            <input type="name" name="nome" class="form-control">                                                        
                             <hr>
                             <label for="selectedTipo">Tipo</label>
                             <input type="checkbox" id="enableTipo" onclick="toggle('enableTipo', 'selectedTipo')" >
@@ -585,8 +607,8 @@ if (!isset($_SESSION["usuario"])) {
                                                                 
                             <hr>
                                                                 
-                            <label for="foto">Foto</label>
-                            <input type="file" name="foto" class="form-control">                                 
+                            <!-- <label for="foto">Foto</label>
+                            <input type="file" name="foto" class="form-control">                                  -->
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -602,6 +624,11 @@ if (!isset($_SESSION["usuario"])) {
         </form>
     </div>
 <script> 
+    function toggle(checkboxID, toggleID) {
+        var checkbox = document.getElementById(checkboxID);
+        var toggle = document.getElementById(toggleID);
+        updateToggle = checkbox.checked ? toggle.disabled=false : toggle.disabled=true;
+    }
 document.addEventListener("DOMContentLoaded", function() { 
   if(typeof jQuery === "function") {
     $("#Actualizar").on("hidden.bs.modal", function () { 
@@ -688,9 +715,17 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div class="modal-body display-7" id="Apagar_body">                                                    
                             <div class="modal-body">
                                                             
-                                <p class="nav-link">Nome projecto</p>
-                                                            
-                                <input type="text" class="form-control" name="nomeDEL">
+                                <label for="id">Projecto</label>
+                                <select class="form-control" name="id" id="id" required>
+                                    <?php
+                                        if(!empty($row))
+                                            foreach($row as $rows)
+                                            { 
+                                        ?>                                                                   
+                                            <option><?php echo $rows['pro_id']." - ".$rows['pro_nome']; ?></option>
+                                    <?php } ?>
+                                </select>
+                                                        
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -806,7 +841,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         </a>
                     </div>
                     <div class="soc-item">
-                        <a href="https://wa.me/258848100497">
+                        <a href="https://wa.me/ 258873100497">
                             <span class="mbr-iconfont socicon-whatsapp socicon"></span>
                         </a>
                     </div>
@@ -821,12 +856,5 @@ document.addEventListener("DOMContentLoaded", function() {
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
-    <script> 
-    function toggle(checkboxID, toggleID) {
-        var checkbox = document.getElementById(checkboxID);
-        var toggle = document.getElementById(toggleID);
-        updateToggle = checkbox.checked ? toggle.disabled=false : toggle.disabled=true;
-    }
-    </script>
   </body>
 </html>

@@ -13,7 +13,6 @@
       echo "Failed to connect to MySQL: " . $conn -> connect_error;
       exit();
    }
-
    function phpAlert($msg) {
         echo '<script type="text/javascript">';
         echo 'alert("' . $msg . '");';
@@ -37,7 +36,6 @@ try {
         $garagem = $_POST['garagem'];
         $preco = $_POST['preco'];
     
-        //Validacao de foto
         //Validacao de foto
         $img = basename($_FILES['foto']['name']); //Get here extension from image
         $result = explode('.',$img);
@@ -105,7 +103,7 @@ try {
 //Metodo de inserir fotos de projectos
 try {
     if ($value =='imagemCriar') {
-        $nome = $_POST['idProjecto'];
+        $nome = preg_replace('/(\d+)\s.*/', '$1', $_POST['id']);
 
         //Validacao de foto
         $img = basename($_FILES['fotoImagem']['name']); //Get here extension from image
@@ -117,7 +115,7 @@ try {
         $folder = "./assets/projectos/" . $foto;
     
         $errors     = array();
-        $maxsize    = 2097152;
+        $maxsize    = 9097152;
         $acceptable = array(
             'image/jpeg',
             'image/jpg',
@@ -174,6 +172,7 @@ try {
 //actualizacao de projectos
 try{
     if ($value =='submitActualizar') {
+    $id = preg_replace('/(\d+)\s.*/', '$1', $_POST['id']);
     $nome = $_POST['nome'];
     $tipo = $_POST['tipo'];
     $descricao = $_POST['descricao'];
@@ -187,8 +186,8 @@ try{
 
     $count = 0;
 
-    if(isset($nome)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_nome = ?  WHERE pro_nome = '$nome' ");
+    if(isset($nome) && !empty($nome) ){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_nome = ?  WHERE pro_id = '$id' ");
         $stmt->bind_param("s", $nome);
         
         if ($stmt->execute()) {
@@ -197,8 +196,8 @@ try{
             throw new Exception("Erro - Inseriu dados invalidos");
         }  
     }
-    if(isset($tipo)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_tipo = ?  WHERE pro_nome = '$nome' ");
+    if(isset($tipo) && !empty($tipo)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_tipo = ?  WHERE pro_id = '$id' ");
         $stmt->bind_param("s",$tipo);
         
         if ($stmt->execute()) {
@@ -208,8 +207,8 @@ try{
         }  
 
     }
-    if(isset($descricao)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_descricao = ?  WHERE pro_nome = '$nome' ");
+    if(isset($descricao) && !empty($descricao)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_descricao = ?  WHERE pro_id = '$id' ");
         $stmt->bind_param("s",$descricao);
         
         if ($stmt->execute()) {
@@ -219,8 +218,8 @@ try{
             throw new Exception("Erro - Inseriu dados invalidos");
         }  
     }
-    if(isset($tamanho)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_tamanho = ?  WHERE pro_nome ='$nome' ");
+    if(isset($tamanho) && !empty($tamanho)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_tamanho = ?  WHERE pro_id = '$id' ");
         $stmt->bind_param("i",$tamanho);
         
         if ($stmt->execute()) {
@@ -230,8 +229,8 @@ try{
             throw new Exception("Erro - Inseriu dados invalidos");
         }   
     }
-    if(isset($quarto)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_quarto = ?  WHERE pro_nome = '$nome' ");    
+    if(isset($quarto) && !empty($quarto)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_quarto = ?  WHERE pro_id = '$id' ");    
         $stmt->bind_param("i", $quarto);
         
         if ($stmt->execute()) {
@@ -241,8 +240,8 @@ try{
             throw new Exception("Erro - Inseriu dados invalidos");
         }  
     }
-    if(isset($wc)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_wc = ?  WHERE pro_nome = '$nome' ");
+    if(isset($wc) && !empty($wc)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_wc = ?  WHERE pro_id = '$id' ");
         $stmt->bind_param("i", $wc);
         
         if ($stmt->execute()) {
@@ -252,8 +251,8 @@ try{
             throw new Exception("Erro - Inseriu dados invalidos");
         }  
     }
-    if(isset($garagem)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_garagem = ?  WHERE pro_nome = '$nome' ");
+    if(isset($garagem) && !empty($garagem)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_garagem = ?  WHERE pro_id = '$id' ");
         $stmt->bind_param("i",$garagem);
         
         if ($stmt->execute()) {
@@ -263,8 +262,8 @@ try{
             throw new Exception("Erro - Inseriu dados invalidos");
         }  
     }
-    if(isset($preco)){
-        $stmt = $conn->prepare(" UPDATE projecto SET pro_preco = ?  WHERE pro_nome = '$nome' ");
+    if(isset($preco) && !empty($preco)){
+        $stmt = $conn->prepare(" UPDATE projecto SET pro_preco = ?  WHERE pro_id = '$id' ");
         $stmt->bind_param("i", $preco);
         
         if ($stmt->execute()) {
@@ -274,7 +273,7 @@ try{
             throw new Exception("Erro - Inseriu dados invalidos");
         } 
     }
-    if(isset($foto)){
+    if(isset($foto) && !empty($foto)){
         $tempname = $_FILES["foto"]["tmp_name"];
         $folder = "./assets/DB/" . $foto;
     
@@ -320,20 +319,19 @@ try{
     $msg =  " " . $th->getMessage();;
     phpAlert($msg);
     echo"<td width=14% align=center><input type=button value=Voltar onclick=myselect() /></td>";
-   // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
+//Apagar projecto 
 try{
-    //Apagar projecto 
     if ($value =='submitApagar') { 
-        $nome = $_POST['nomeDEL'];
-        $stmt = $conn->prepare("DELETE FROM projecto WHERE pro_nome = ? ");
-        $stmt->bind_param("s", $nome);
+        $id = preg_replace('/(\d+)\s.*/', '$1', $_POST['id']);
+        $stmt = $conn->prepare("DELETE FROM projecto WHERE pro_id = ? ");
+        $stmt->bind_param("s", $id);
 
         $path = './assets/DB/';
 
             //Apagar foto no ficheiro DB
-            $sql = "SELECT pro_img FROM projecto WHERE pro_nome = '$nome' ";
+            $sql = "SELECT pro_img FROM projecto WHERE pro_id = '$id' ";
             $result = ($conn->query($sql));
             //declare array to store the data of database
             $row = []; 
@@ -358,14 +356,13 @@ try{
     $msg =  " " . $th->getMessage();;
     phpAlert($msg);
     echo"<td width=14% align=center><input type=button value=Voltar onclick=myselect() /></td>";
-   // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
+//Apagar uma das imagens do projecto 
 try{
-    //Apagar uma das imagens do projecto 
     if ($value =='imagemApagar') {
          
-        $nome = $_POST['IDimagem'];
+        $nome = preg_replace('/(\d+)\s.*/', '$1', $_POST['id']);
         $stmt = $conn->prepare("DELETE FROM imagens WHERE id_imagens = ? ");
         $stmt->bind_param("s", $nome);
 

@@ -127,7 +127,7 @@
                           <?php echo '<p class="mbr-text mbr-fonts-style mt-3 display-7">Não inclui: </p> '; ?>
                           <?php echo '<h5>Mapa de quantidades </h5> '; ?>   
                           <?php echo '<h5>Orçamento </h5> '; ?>  
-                        <?php echo '<div class="mbr-section-btn item-footer mt-2"><a  class="btn item-btn btn-info display-7" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=258848100497&text=Cumprimentos! Estou interessado no projecto '.$rows['pro_nome'].', visualizado a partir website" value="produto">Estou interessado</a></div>'; ?> 
+                        <?php echo '<div class="mbr-section-btn item-footer mt-2"><a  class="btn item-btn btn-info display-7" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone= 258873100497&text=Cumprimentos! Estou interessado no projecto '.$rows['pro_nome'].', visualizado a partir website" value="produto">Estou interessado</a></div>'; ?> 
                     </div>
                 </div>
             </div>
@@ -246,7 +246,7 @@
                         </a>
                     </div>
                     <div class="soc-item">
-                        <a href="https://wa.me/258848100497">
+                        <a href="https://wa.me/ 258873100497">
                             <span class="mbr-iconfont socicon-whatsapp socicon"></span>
                         </a>
                     </div>
